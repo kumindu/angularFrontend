@@ -15,6 +15,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
 
 
@@ -39,7 +40,7 @@ import { LoginComponent } from './login';
         UserService,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
+        { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' }},
         // provider used to create fake backend
         fakeBackendProvider
     ],
